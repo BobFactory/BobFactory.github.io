@@ -4,8 +4,10 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
-  title: "Bawender Yandra",
+  title: "Bawender Yandra Portfolio",
   description: "Mobile Architect & Developer",
+  creator: "Bawender Yandra",
+  icons: "https://i.ibb.co/C6tR3Qy/PXL-20211113-122803985-MP-2.jpg",
 };
 
 // Configure Figtree font
