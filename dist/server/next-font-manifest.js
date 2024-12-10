@@ -1,1 +1,0 @@
-self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/Users/bawenderyandra/Documents/Projects/Personal/portfolio/src/app/layout":["static/media/968c529aef8f703d-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';
