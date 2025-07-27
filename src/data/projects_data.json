@@ -1,0 +1,124 @@
+{
+  "projects": [
+    {
+      "title": "Shape Channels",
+      "img": "/img_channels.png",
+      "description": "Channels is a dedicated messaging app for clear and organized project communication for construction teams. Keep all your conversations, files, photos, issues, and progress updates in one easily accessible location. Track down information quickly and ensure everyone is on the same page. Enhanced Visibility: Gain a clear view of project progress with photos, updates, and discussions in one place",
+      "fullDescription": "",
+      "alt": "Shape Channels Img",
+      "tags": ["messaging", "communication"],
+      "techStack": [
+        "React Native",
+        "Typescript",
+        "Tanstack-Query",
+        "Expo",
+        "Stream Chat SDK",
+        "native modules",
+        "Storybook"
+      ],
+      "features": [
+        "Real-time messaging and notifications using Stream Chat SDK",
+        "Project-based conversations",
+        "File and document sharing",
+        "single monolithic codebase for both Mobile and Web"
+      ],
+      "links": {
+        "android": "https://play.google.com/store/apps/details?id=shapeconstruction.channels.production",
+        "iOS": "https://apps.apple.com/us/app/shape-channels/id6497407147",
+        "website": "https://www.shape.construction/"
+      }
+    },
+    {
+      "title": "Platable",
+      "img": "/img_platable.png",
+      "description": "Every day, delicious food from your favorite spots goes to waste because it does not get sold. With Platable, you can snag Surprise Bags filled with quality eats, save some cash, and do your part to help reduce food waste.",
+      "fullDescription": "",
+      "alt": "Platable Img",
+      "tags": ["food delivery"],
+      "techStack": [
+        "Flutter",
+        "Dart",
+        "GetX",
+        "Firebase",
+        "Stripe",
+        "Jetpack Compose",
+        "Kotlin",
+        "MVVM",
+        "Coroutines",
+        "Hilt",
+        "Retrofit",
+        "Compose-Destinations"
+      ],
+      "features": [
+        "Guest user and logged-in user support",
+        "Google Maps Clustering, location tracking, and order tracking",
+        "Payment Processing with Stripe",
+        "Firebase Cloud Messaging for real-time updates",
+        "Firebase Crashlytics for error tracking",
+        "Analytics for user behavior tracking",
+        "Built with flutter and later upgraded to native android and iOS"
+      ],
+      "links": {
+        "android": "https://play.google.com/store/apps/details?id=com.platablenow.platable",
+        "iOS": "https://apps.apple.com/us/app/platable/id6502869376",
+        "website": "https://www.platablenow.com/"
+      }
+    },
+    {
+      "title": "Kalido: the opportunities app",
+      "img": "/img_kalido.png",
+      "description": "Kalido is an amazing AI powered platform that creates abundant opportunities for individuals in enterprises and communities. Our intuitive tools match your skills to people, teams, projects and jobs to surface economic, professional and social opportunities that would otherwise stay hidden.",
+      "fullDescription": "",
+      "alt": "Kalido Img",
+      "tags": ["talent Management", "HRMS"],
+      "techStack": [
+        "Kotlin",
+        "Jetpack Compose",
+        "MVVM",
+        "Coroutines",
+        "Hilt",
+        "Retrofit",
+        "Compose-Destinations"
+      ],
+      "features": [
+        "AI-powered matching of skills to opportunities",
+        "Jetpack compose for modern UI development",
+        "Linkedin like profile creation and management",
+        "Real-time notifications and updates",
+        "Android powered with Kotlin and Modern Android Architecture"
+      ],
+      "links": {
+        "android": "https://play.google.com/store/apps/details?id=me.kalido.android",
+        "iOS": "https://apps.apple.com/in/app/kalido-the-opportunity-app/id961851767",
+        "website": "https://www.kalido.me/"
+      }
+    },
+    {
+      "title": "Habit Tracker : HabitBoard",
+      "img": "/img_habit_board.png",
+      "description": "Welcome to HabitBoard the premier habit tracking application carefully crafted to facilitate your journey towards personal growth and self-improvement!",
+      "fullDescription": "",
+      "alt": "HabitBoard Img",
+      "tags": ["habit tracker", "productivity"],
+      "techStack": [
+        "Flutter",
+        "Dart",
+        "GetX",
+        "Firebase",
+        "Hive Database",
+        "Crashlytics",
+        "Supabase"
+      ],
+      "features": [
+        "Customizable habit tracking with reminders",
+        "Progress visualization through charts and statistics",
+        "Daily motivational quotes to inspire users",
+        "User-friendly interface with Material You design",
+        "Built with Flutter for cross-platform support"
+      ],
+      "links": {
+        "android": "https://play.google.com/store/apps/details?id=com.creations.bawender.habitboardnext"
+      }
+    }
+  ]
+}

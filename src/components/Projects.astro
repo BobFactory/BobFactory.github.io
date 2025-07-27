@@ -1,0 +1,186 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import SectionTitle from "./SectionTitle.astro";
+import ProjectsData from "../data/projects_data.json";
+import Modal from "./ui/modal.astro";
+import GooglePlayIcon from "../icons/google-play.png";
+import AppStoreIcon from "../icons/app-store.png";
+import { Icon } from "astro-icon/components";
+---
+
+<section
+  x-data={`{ 
+    data: ${JSON.stringify(ProjectsData.projects)},
+    modalOpen: false,
+    selectedProject: null,
+
+    openModal(project) {
+      this.selectedProject = project;
+      this.modalOpen = true;
+    },
+
+    closeModal() {
+      this.modalOpen = false;
+    }
+  
+  }`}
+  class="w-full flex justify-center items-center"
+>
+  <div
+    class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 flex flex-col py-16 gap-4 sm:gap-5 md:gap-6"
+  >
+    <SectionHeading>My Projects</SectionHeading>
+    <SectionTitle>Some of my best works</SectionTitle>
+    <p
+      class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed"
+    >
+      A showcase of innovative solutions and successful projects that <br />
+      demonstrate my expertise across different technologies and industries.
+    </p>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mt-8 sm:mt-10 md:mt-12 lg:mt-16"
+    >
+      <template x-for="project in data" :key="project.title">
+        <div
+          @click="openModal(project)"
+          class="overflow-hidden rounded-2xl shadow-md flex flex-col group hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
+        >
+          <!-- Image -->
+          <figure>
+            <img
+              :src="project.img"
+              alt="card image"
+              class="aspect-video w-full object-cover group-hover:scale-105 transition-all duration-300"
+            />
+          </figure>
+
+          <!-- Body -->
+          <div
+            class="flex flex-col p-6 sm:p-8 md:p-10 gap-4 sm:gap-5 md:gap-6 flex-1"
+          >
+            <h3
+              class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 leading-tight"
+              x-text="project.title"
+            >
+            </h3>
+            <p
+              class="text-sm sm:text-base text-gray-500 mb-2 sm:mb-3 md:mb-4 leading-relaxed line-clamp-3"
+              x-text="project.description"
+            >
+            </p>
+            <div class="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mt-auto">
+              <template x-for="tag in project.tags" :key="tag">
+                <span
+                  class="px-3 sm:px-4 py-1 sm:py-1.5 bg-accent-50 border-2 border-accent-500 rounded-full text-xs sm:text-sm font-medium"
+                  x-text="tag"></span>
+              </template>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+
+  <!-- Enhanced Modal -->
+  <Modal size="xl" showCloseButton={true}>
+    <!-- Modal Header -->
+    <div
+      class="flex items-start justify-between pb-4 sm:pb-6 border-b border-gray-300 mb-4 sm:mb-6"
+    >
+      <div class="flex-1 space-y-3 sm:space-y-4">
+        <h3
+          x-text="selectedProject?.title"
+          class="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 leading-tight"
+        >
+        </h3>
+        <div class="flex flex-wrap gap-2 sm:gap-3">
+          <template x-for="tag in selectedProject?.tags || []" :key="tag">
+            <span
+              class="px-3 sm:px-4 py-1 sm:py-1.5 bg-accent-50 border-2 border-accent-500 rounded-full text-xs sm:text-sm font-medium"
+              x-text="tag"></span>
+          </template>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Content -->
+    <div class="space-y-4 sm:space-y-6 md:space-y-8">
+      <div x-show="selectedProject?.img">
+        <img
+          :src="selectedProject?.img"
+          :alt="selectedProject?.alt"
+          class="w-full aspect-video object-cover rounded-lg max-h-64 md:max-h-80"
+        />
+      </div>
+
+      <!-- Description -->
+      <div>
+        <h4
+          class="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-gray-800"
+        >
+          About This Project
+        </h4>
+        <p
+          x-text="selectedProject?.fullDescription"
+          class="text-sm sm:text-base text-gray-700 leading-relaxed"
+        >
+        </p>
+      </div>
+
+      <!-- Tech Stack -->
+      <div>
+        <h4
+          class="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-gray-800"
+        >
+          Technology Stack
+        </h4>
+        <div class="flex flex-wrap gap-2 sm:gap-3">
+          <template
+            x-for="tech in selectedProject?.techStack || []"
+            :key="tech"
+          >
+            <span
+              class="bg-gray-100 text-gray-800 px-2 sm:px-3 py-1 sm:py-2 rounded-lg text-xs sm:text-sm font-medium"
+              x-text="tech"></span>
+          </template>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div
+        class="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 pt-6 sm:pt-8 md:pt-10 border-t border-gray-300"
+      >
+        <a
+          class="btn btn-accent-soft py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base flex items-center justify-center gap-2"
+          :href="selectedProject?.links?.android"
+          target="_blank"
+          x-show="selectedProject?.links?.android"
+        >
+          <img src={GooglePlayIcon.src} class="size-6 sm:size-8" />
+          <span class="hidden sm:inline">View on Google Play</span>
+        </a>
+
+        <a
+          class="btn bg-blue-50 text-blue-500 shadow-none py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base flex items-center justify-center gap-2 hover:bg-blue-100 hover:text-blue-600 hover:shadow-md hover:shadow-blue-100"
+          :href="selectedProject?.links?.iOS"
+          target="_blank"
+          x-show="selectedProject?.links?.iOS"
+        >
+          <img src={AppStoreIcon.src} class="size-6 sm:size-8" />
+          <span class="hidden sm:inline">View on App Store</span>
+        </a>
+
+        <a
+          class="btn btn-secondary-soft py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base flex items-center justify-center"
+          :href="selectedProject?.links?.website"
+          target="_blank"
+          x-show="selectedProject?.links?.website"
+        >
+          <Icon name="website" class="size-6 sm:size-8" />
+          <span class="hidden sm:inline">View Business Website</span>
+        </a>
+      </div>
+    </div>
+  </Modal>
+</section>

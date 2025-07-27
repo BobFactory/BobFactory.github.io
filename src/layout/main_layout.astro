@@ -1,0 +1,183 @@
+---
+import Navbar from "../components/Navbar.astro";
+import "../styles/global.css";
+
+export interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = "Bawender Yandra - Senior Mobile & Web Developer with 10+ years experience in Flutter, Android, iOS and Web development. Building scalable, high-performance applications worldwide.",
+  keywords = "Flutter developer, Mobile app developer, Android developer, iOS developer, Web developer, Cross-platform development, Kotlin, Swift, Dart, JavaScript, TypeScript, Senior Software Engineer",
+  ogImage = "https://i.ibb.co/C6tR3Qy/PXL-20211113-122803985-MP-2.jpg",
+} = Astro.props;
+
+// Canonical URL (update with your actual domain)
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site || "https://bobfactory.github.io"
+);
+---
+
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://i.ibb.co/C6tR3Qy/PXL-20211113-122803985-MP-2.jpg"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://i.ibb.co/C6tR3Qy/PXL-20211113-122803985-MP-2.jpg"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://i.ibb.co/C6tR3Qy/PXL-20211113-122803985-MP-2.jpg"
+    />
+
+    <!-- Essential Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="author" content="Bawender Yandra" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      property="og:site_name"
+      content="Bawender Yandra - Developer Portfolio"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+    <meta property="twitter:creator" content="@bawender" />
+
+    <!-- Additional Professional Meta Tags -->
+    <meta name="theme-color" content="#6b63f1" />
+    <meta name="msapplication-TileColor" content="#6b63f1" />
+    <meta name="application-name" content="Bawender Yandra Portfolio" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Bawender Yandra",
+        "alternateName": "Bawender Y.",
+        "description": "Senior Mobile & Web Developer specializing in Flutter, Android, iOS and web development",
+        "jobTitle": [
+          "Senior Software Engineer",
+          "Mobile App Developer",
+          "Web Developer",
+          "Flutter Developer",
+          "Cross-platform Developer"
+        ],
+        "skills": [
+          "Flutter",
+          "Android Development",
+          "iOS Development",
+          "Kotlin",
+          "Swift",
+          "Dart",
+          "JavaScript",
+          "TypeScript",
+          "Node.js",
+          "Cross-platform Development"
+        ],
+        "url": "https://bawender-portfolio.com",
+        "image": "https://i.ibb.co/C6tR3Qy/PXL-20211113-122803985-MP-2.jpg",
+        "sameAs": [
+          "https://www.linkedin.com/in/bawender",
+          "https://github.com/BobFactory"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Contractual/Freelance Developer"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "New Delhi",
+          "addressCountry": "India"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "bawender.y@gmail.com",
+          "contactType": "Professional"
+        },
+        "knowsAbout": [
+          "Mobile Application Development",
+          "Cross-platform Development",
+          "Web Development",
+          "Software Architecture",
+          "UI/UX Implementation"
+        ]
+      }
+    </script>
+
+    <!-- Google Fonts with Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Preload Critical Resources -->
+    <link
+      rel="preload"
+      href="/fonts/montserrat.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/poppins.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+  </head>
+
+  <body class="font-poppins min-h-screen flex flex-col">
+    <Navbar />
+    <main class="flex-1 w-full">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  body {
+    background-color: #fdfdfe;
+  }
+</style>

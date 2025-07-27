@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+/* Use https://uicolors.app/generate/00bc7d site to generate Tailwind color schemes. */
+@theme {
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+
+  --color-primary-50: #efeeff;
+  --color-primary-100: #e2e0ff;
+  --color-primary-200: #cac7fe;
+  --color-primary-300: #aaa5fc;
+  --color-primary-400: #8881f8;
+  --color-primary-500: #6b63f1;
+  --color-primary-600: #4f46e5;
+  --color-primary-700: #4038ca;
+  --color-primary-800: #3730a3;
+  --color-primary-900: #332e81;
+  --color-primary-950: #1e1b4b;
+
+  --color-secondary-50: #f7f3ff;
+  --color-secondary-100: #efe9fe;
+  --color-secondary-200: #e2d6fe;
+  --color-secondary-300: #cbb5fd;
+  --color-secondary-400: #ad8bfa;
+  --color-secondary-500: #8b5cf6;
+  --color-secondary-600: #713aed;
+  --color-secondary-700: #5e28d9;
+  --color-secondary-800: #4e21b6;
+  --color-secondary-900: #421d95;
+  --color-secondary-950: #2a1065;
+
+  --color-accent-50: #eafff5;
+  --color-accent-100: #cdfee5;
+  --color-accent-200: #a0fad1;
+  --color-accent-300: #63f2b8;
+  --color-accent-400: #25e29c;
+  --color-accent-500: #00bc7d;
+  --color-accent-600: #00a46d;
+  --color-accent-700: #00835c;
+  --color-accent-800: #00674a;
+  --color-accent-900: #00553e;
+  --color-accent-950: #003024;
+}
+
+@layer components {
+  /* Base button */
+  .btn {
+    @apply text-lg inline-flex items-center justify-center gap-2 px-12 
+    font-medium tracking-wide transition duration-300 rounded 
+    shadow-lg focus-visible:outline-none whitespace-nowrap cursor-pointer;
+  }
+
+  /* Color variants */
+  .btn-accent {
+    @apply text-white bg-accent-500 shadow-accent-500/20 
+    hover:bg-accent-600 hover:shadow-md hover:shadow-accent-500/20 
+    focus:bg-accent-700 focus:shadow-md focus:shadow-accent-200 
+    disabled:cursor-not-allowed disabled:border-accent-300 disabled:bg-accent-500/30 disabled:shadow-none;
+  }
+
+  .btn-primary {
+    @apply text-white bg-primary-500 shadow-primary-500/20
+    hover:bg-primary-600 hover:shadow-md hover:shadow-primary-500/20
+    focus:bg-primary-700 focus:shadow-md focus:shadow-primary-200
+    disabled:cursor-not-allowed disabled:border-primary-300 disabled:bg-primary-500/30 disabled:shadow-none;
+  }
+
+  .btn-secondary {
+    @apply text-white bg-secondary-500 shadow-secondary-500/20
+    hover:bg-secondary-600 hover:shadow-md hover:shadow-secondary-500/20
+    focus:bg-secondary-700 focus:shadow-md focus:shadow-secondary-200
+    disabled:cursor-not-allowed disabled:border-secondary-300 disabled:bg-secondary-500/30 disabled:shadow-none;
+  }
+
+  /* Soft Variants */
+  .btn-accent-soft {
+    @apply bg-accent-50 text-accent-500 shadow-none
+    hover:bg-accent-100 hover:text-accent-600 hover:shadow-md hover:shadow-accent-100
+    focus:bg-accent-200 focus:text-accent-700 focus:shadow-md focus:shadow-accent-100 
+    disabled:cursor-not-allowed disabled:border-accent-100 disabled:bg-accent-100 disabled:shadow-none;
+  }
+
+  .btn-primary-soft {
+    @apply bg-primary-50 text-primary-500 shadow-none
+    hover:bg-primary-100 hover:text-primary-600 hover:shadow-md hover:shadow-primary-100
+    focus:bg-primary-200 focus:text-primary-700 focus:shadow-md focus:shadow-primary-100 
+    disabled:cursor-not-allowed disabled:border-primary-100 disabled:bg-primary-100 disabled:shadow-none;
+  }
+
+  .btn-secondary-soft {
+    @apply bg-secondary-50 text-secondary-500 shadow-none
+    hover:bg-secondary-100 hover:text-secondary-600 hover:shadow-md hover:shadow-secondary-100
+    focus:bg-secondary-200 focus:text-secondary-700 focus:shadow-md focus:shadow-secondary-100 
+    disabled:cursor-not-allowed disabled:border-secondary-100 disabled:bg-secondary-100 disabled:shadow-none;
+  }
+
+  /* Outline Variants */
+
+  .btn-accent-outline {
+    @apply border-2 border-accent-500 text-accent-500 shadow-accent-200
+    focus:border-accent-700 focus:text-accent-700 focus:shadow-md focus:shadow-accent-200 
+    hover:border-accent-600 hover:text-accent-600 hover:shadow-md hover:shadow-accent-200 
+    disabled:cursor-not-allowed disabled:border-accent-300 disabled:text-accent-300 disabled:shadow-none;
+  }
+
+  .btn-primary-outline {
+    @apply border-2 border-primary-500 text-primary-500 shadow-primary-200
+    focus:border-primary-700 focus:text-primary-700 focus:shadow-md focus:shadow-primary-200 
+    hover:border-primary-600 hover:text-primary-600 hover:shadow-md hover:shadow-primary-200 
+    disabled:cursor-not-allowed disabled:border-primary-300 disabled:text-primary-300 disabled:shadow-none;
+  }
+
+  .btn-secondary-outline {
+    @apply border-2 border-secondary-500 text-secondary-500 shadow-secondary-200
+    focus:border-secondary-700 focus:text-secondary-700 focus:shadow-md focus:shadow-secondary-200 
+    hover:border-secondary-600 hover:text-secondary-600 hover:shadow-md hover:shadow-secondary-200 
+    disabled:cursor-not-allowed disabled:border-secondary-300 disabled:text-secondary-300 disabled:shadow-none;
+  }
+
+  .card {
+    @apply bg-white shadow-lg border border-gray-200 rounded-lg p-6;
+  }
+
+  .input {
+    @apply w-full px-4 py-4 font-poppins text-sm rounded-lg outline-none text-slate-700
+    border border-gray-400 
+    focus-visible:outline-none focus:border-accent-500 autofill:bg-white transition-all;
+  }
+}

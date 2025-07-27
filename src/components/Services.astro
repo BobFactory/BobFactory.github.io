@@ -1,0 +1,140 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import SectionTitle from "./SectionTitle.astro";
+import { Icon } from "astro-icon/components";
+
+interface ServiceData {
+  type:
+    | "mvp"
+    | "refactoring"
+    | "cross-platform"
+    | "website"
+    | "native"
+    | "consult";
+  title: string;
+  subtitle: string;
+  points: string[];
+}
+
+const data: ServiceData[] = [
+  {
+    type: "mvp",
+    title: "Quick And fast mobile MVP development",
+    subtitle:
+      "Build and launch your mobile app quickly with a focus on core features. Perfect for startups and fast iterations.",
+    points: [
+      "Rapid prototyping to bring your idea to life",
+      "Core feature implementation with minimal overhead",
+      "Cross-platform support using technologies like Flutter and React Native",
+      "Scalable architecture to grow with your product",
+      "Focus on user-centric design and performance",
+    ],
+  },
+  {
+    type: "refactoring",
+    title: "Code Refactoring, Maintenance, & Bug Resolution",
+    subtitle:
+      "Enhance your app's performance, maintainability, and reliability with clean, optimized code and swift issue resolution.",
+    points: [
+      "Refactoring legacy code for better readability and scalability",
+      "Resolving critical bugs to ensure seamless functionality",
+      "Improving app performance and load times",
+      "Ongoing maintenance to keep your app up-to-date",
+      "Enhancing code quality to reduce future technical debt",
+    ],
+  },
+  {
+    type: "cross-platform",
+    title: "Cross-Platform App Development",
+    subtitle:
+      "Develop high-performance apps for both Android and iOS using a single codebase with React Native or Flutter.",
+    points: [
+      "Efficient development for Android and iOS from a single codebase",
+      "Seamless user experiences across both platforms",
+      "Cost-effective solutions without compromising quality",
+      "Access to native features for enhanced functionality",
+      "Faster time-to-market with modern cross-platform technologies",
+    ],
+  },
+  {
+    type: "website",
+    title: "Landing Pages & Websites",
+    subtitle:
+      "Create visually stunning and responsive websites to showcase your brand or product effectively.",
+    points: [
+      "Custom-designed landing pages tailored to your needs",
+      "SEO-friendly websites for better search engine visibility",
+      "Responsive design for flawless performance across devices",
+      "Integration with analytics tools for tracking performance",
+      "Fast-loading pages optimized for user retention",
+    ],
+  },
+  {
+    type: "native",
+    title: "Native Android & iOS Development",
+    subtitle:
+      "Deliver high-quality, platform-specific mobile applications for the best user experience.",
+    points: [
+      "Native app development using Java/Kotlin for Android and Swift/Objective-C for iOS",
+      "Performance-optimized apps tailored to platform capabilities",
+      "Deep integration with platform-specific APIs and hardware",
+      "Scalable architecture for apps designed to grow",
+      "Pixel-perfect designs following platform guidelines",
+    ],
+  },
+  {
+    type: "consult",
+    title: "Technical Consultant",
+    subtitle:
+      "Expert guidance to help you make informed technical decisions for your projects.",
+    points: [
+      "Technology stack recommendations based on your project goals",
+      "Architectural planning for scalable and maintainable solutions",
+      "Codebase reviews to improve quality and performance",
+      "Performance optimization strategies for existing apps",
+      "Tailored advice to align your technology with business objectives",
+    ],
+  },
+];
+---
+
+<section class="flex justify-center w-full m-auto">
+  <div
+    class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 flex flex-col py-16 gap-4 sm:gap-5 md:gap-6"
+  >
+    <SectionHeading>My Services</SectionHeading>
+    <SectionTitle>
+      Tailored Tech Solutions: <br />
+      Services Designed for Your Unique Needs
+    </SectionTitle>
+
+    <p
+      class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed"
+    >
+      I offer comprehensive development services to bring your digital vision to
+      life.
+    </p>
+
+    <div
+      class="w-full bg-gray-50 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 p-1 sm:p-2 md:p-4 lg:p-6 mt-8 sm:mt-12 md:mt-16"
+    >
+      {
+        data.map((service) => (
+          <div class="p-8 sm:p-12 md:p-16 flex flex-col items-center group border-l border-t border-primary-200">
+            <Icon
+              name={service.type}
+              class="text-2xl sm:text-3xl md:text-4xl text-gray-400 group-hover:text-3xl sm:group-hover:text-4xl md:group-hover:text-5xl transform duration-300"
+            />
+            <div class="my-4 sm:my-5 md:my-6" />
+            <h3 class="text-base sm:text-lg md:text-xl font-medium uppercase text-center leading-tight">
+              {service.title}
+            </h3>
+            <p class="text-center font-normal text-gray-500 mt-3 sm:mt-4 text-xs sm:text-sm md:text-base opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-20 transition-all duration-700 ease-in-out leading-relaxed">
+              {service.subtitle}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

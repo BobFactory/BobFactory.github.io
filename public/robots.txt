@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Protect personal files
+Disallow: /resume-full.pdf
+Disallow: /admin/
+Disallow: /*.json$
+
+# Optional: Be selective about AI crawlers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
