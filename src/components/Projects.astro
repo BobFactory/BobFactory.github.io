@@ -17,6 +17,7 @@ import { Icon } from "astro-icon/components";
     openModal(project) {
       this.selectedProject = project;
       this.modalOpen = true;
+      window.trackPortfolioEvent?.('project_view', project.title)
     },
 
     closeModal() {
@@ -117,12 +118,14 @@ import { Icon } from "astro-icon/components";
       <!-- Description -->
       <div>
         <h4
+          x-show="selectedProject?.fullDescription"
           class="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-gray-800"
         >
           About This Project
         </h4>
         <p
-          x-text="selectedProject?.fullDescription"
+          x-show="selectedProject?.fullDescription"
+          x-html="selectedProject?.fullDescription"
           class="text-sm sm:text-base text-gray-700 leading-relaxed"
         >
         </p>
